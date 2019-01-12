@@ -21,6 +21,8 @@ input[type=text], input[type=password] {
 div.login {
     max-width:450px;
     margin: auto;
+	text-align: center;
+	font-size: 25px;
 }
 
 div.welcomemess {
@@ -31,13 +33,15 @@ div.welcomemess {
 }
 
 button {
-  background-color: ##4caf63;
-  color: black;
+  background-color: #054887;
+  color: white;
+  font-size: 17px;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
   width: 100%;
+
 }
 
 /* Add a hover effect for buttons */
@@ -53,6 +57,7 @@ button:hover {
 body {
   background-image: url("81651.PNG");
   background-size: cover;
+
 }
 
 .footer {
