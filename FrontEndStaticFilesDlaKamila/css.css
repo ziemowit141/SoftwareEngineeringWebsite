@@ -15,6 +15,7 @@ input[type=text], input[type=password] {
   margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
+  border-radius: 7px;
   box-sizing: border-box;
 }
 
@@ -41,7 +42,7 @@ button {
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 7px;
   width: 100%;
 
 }
