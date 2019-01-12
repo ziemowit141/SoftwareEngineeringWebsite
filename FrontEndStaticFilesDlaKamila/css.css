@@ -1,0 +1,66 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+form {
+  border: 3px solid #f1f1f1;
+}
+
+* {
+    font-family: "Roboto", sans-serif;
+  }
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+div.login {
+    max-width:450px;
+    margin: auto;
+}
+
+div.welcomemess {
+	margin-top: 20px;
+	margin-bottom: 10px;
+	font-size: 30px;
+	text-align: center;
+}
+
+button {
+  background-color: ##4caf63;
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+}
+
+body {
+  background-image: url("81651.PNG");
+  background-size: cover;
+}
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   color: white;
+   text-align: right;
+   margin-left:-5px;
+}
