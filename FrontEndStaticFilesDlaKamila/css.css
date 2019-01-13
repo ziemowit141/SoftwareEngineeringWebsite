@@ -25,6 +25,12 @@ div.login {
 	text-align: center;
 	font-size: 25px;
 	margin-top: 70px;
+	opacity: 1;
+    animation: fade 2s linear;
+}
+
+@keyframes fade {
+  0%,50% { opacity: 0 }
 }
 
 div.welcomemess {
@@ -32,6 +38,8 @@ div.welcomemess {
 	margin-bottom: 10px;
 	font-size: 30px;
 	text-align: center;
+	opacity: 1;
+    animation: fade 1s linear;
 }
 
 button {
@@ -45,7 +53,6 @@ button {
   border-radius: 7px;
   width: 80%;
   margin-top: 20px;
-
 }
 
 /* Add a hover effect for buttons */
@@ -72,4 +79,6 @@ body {
    color: white;
    text-align: right;
    margin-left:-5px;
+   opacity: 1;
+   animation: fade 3s linear;
 }
