@@ -2,6 +2,12 @@
 {% block title %}Login Page{% endblock %}
 {% block content %}
 
+<div class="welcomemess">
+
+	<h1>Welcome to Dissertation System</h1>
+
+</div>
+
 {% if form.errors %}
 <p>Your username and password didn't match. Please try again.</p>
 {% endif %}
@@ -14,7 +20,7 @@
     <p>Please login to see this page.</p>
     {% endif %}
 {% endif %}
-
+<div class="login">
 <form method="post" action="{% url 'login' %}">
 {% csrf_token %}
 <table>
@@ -32,7 +38,8 @@
 <input type="hidden" name="next" value="/dissertation/index/">
 </form>
 
+
 {# Assumes you setup the password_reset view in your URLconf #}
 <p><a href="#">Forgot password?</a></p>
-
+</div>
 {% endblock %}
