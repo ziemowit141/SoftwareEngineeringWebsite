@@ -10,7 +10,7 @@ form {
 
 /* Full-width inputs */
 input[type=text], input[type=password] {
-  width: 100%;
+  width: 80%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -24,7 +24,7 @@ div.login {
     margin: auto;
 	text-align: center;
 	font-size: 25px;
-	margin-top: 80px;
+	margin-top: 70px;
 }
 
 div.welcomemess {
