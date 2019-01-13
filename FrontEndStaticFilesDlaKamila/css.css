@@ -26,7 +26,7 @@ div.login {
 	font-size: 25px;
 	margin-top: 75px;
 	opacity: 1;
-    animation: fade 2s linear;
+    animation: fade 3s linear;
 }
 
 @keyframes fade {
@@ -39,7 +39,7 @@ div.welcomemess {
 	font-size: 30px;
 	text-align: center;
 	opacity: 1;
-    animation: fade 1s linear;
+    animation: fade 2s linear;
 }
 
 div.forgot {
@@ -93,5 +93,5 @@ body {
    text-align: right;
    margin-left:-5px;
    opacity: 1;
-   animation: fade 3s linear;
+   animation: fade 6s linear;
 }
