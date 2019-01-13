@@ -24,7 +24,7 @@ div.login {
     margin: auto;
 	text-align: center;
 	font-size: 25px;
-	margin-top: 70px;
+	margin-top: 75px;
 	opacity: 1;
     animation: fade 2s linear;
 }
@@ -40,6 +40,19 @@ div.welcomemess {
 	text-align: center;
 	opacity: 1;
     animation: fade 1s linear;
+}
+
+div.forgot {
+	text-align: right;
+	width: 90%;
+}
+
+div.forgot :active{
+	color: black;
+}
+
+div.forgot :visited{
+	color: black;
 }
 
 button {
