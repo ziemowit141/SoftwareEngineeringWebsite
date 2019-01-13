@@ -1,0 +1,97 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+form {
+  border: 3px solid #f1f1f1;
+}
+
+* {
+    font-family: "Roboto", sans-serif;
+  }
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  box-sizing: border-box;
+}
+
+div.login {
+    max-width:450px;
+    margin: auto;
+	text-align: center;
+	font-size: 25px;
+	margin-top: 75px;
+	opacity: 1;
+    animation: fade 3s linear;
+}
+
+@keyframes fade {
+  0%,50% { opacity: 0 }
+}
+
+div.welcomemess {
+	margin-top: 70px;
+	margin-bottom: 10px;
+	font-size: 30px;
+	text-align: center;
+	opacity: 1;
+    animation: fade 2s linear;
+}
+
+div.forgot {
+	text-align: right;
+	width: 90%;
+}
+
+div.forgot :active{
+	color: black;
+}
+
+div.forgot :visited{
+	color: black;
+}
+
+button {
+  background-color: #054887;
+  color: white;
+  font-size: 17px;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  border-radius: 7px;
+  width: 80%;
+  margin-top: 20px;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+}
+
+body {
+  background: url("images/81651.png");
+  background-size: cover;
+
+}
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   color: white;
+   text-align: right;
+   margin-left:-5px;
+   opacity: 1;
+   animation: fade 6s linear;
+}
