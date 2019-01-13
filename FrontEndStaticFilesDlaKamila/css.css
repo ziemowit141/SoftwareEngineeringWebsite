@@ -43,7 +43,8 @@ button {
   border: none;
   cursor: pointer;
   border-radius: 7px;
-  width: 100%;
+  width: 80%;
+  margin-top: 20px;
 
 }
 
