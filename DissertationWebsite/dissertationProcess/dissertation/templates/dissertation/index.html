@@ -1,0 +1,19 @@
+
+{% extends "dissertation/base.html" %}
+{% block title %}User Main Page{% endblock %}
+{% block content %}
+    <img src="{{ user.profile.picture.url }}" height="200px" width="200px">
+    <h2>{{ user.get_full_name }}</h2>
+    witamy {{ user.get_username  }}
+    {% if user.profile.is_student %}
+        <input type="button" value="show list of supervisors">
+    {% endif %}
+    {% if user.profile.is_reviewer %}
+        <input type="button" value="show list of students">
+    {% endif %}
+    {% if user.get_username == 'admin' %}
+        <input type="button" value="show list of students">
+    {% endif %}
+    <p><a href="{%  url 'password_change' %}">Reset Password</a></p>
+    <a href="{%  url 'logout' %}"><input type="button" value="logout"></input></a>
+{% endblock %}
