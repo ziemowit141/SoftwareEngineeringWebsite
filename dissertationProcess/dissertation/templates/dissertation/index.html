@@ -1,7 +1,9 @@
-
 {% extends "dissertation/base.html" %}
 {% block title %}User Main Page{% endblock %}
 {% block content %}
+    <nav>
+        <a href="{% url 'supervisorsList' %}">Supervisors List</a>
+    </nav>
     <img src="{{ user.profile.picture.url }}" height="200px" width="200px">
     <h2>{{ user.get_full_name }}</h2>
     witamy {{ user.get_username  }}

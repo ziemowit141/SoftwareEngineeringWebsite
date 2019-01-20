@@ -1,0 +1,13 @@
+{% extends "dissertation/base.html" %}
+{% block title %} Supervisors List {% endblock %}
+{% block content %}
+	<img src="{{ supervisor.user.profile.picture.url }}" height="200px" width="200px">
+	<p>
+		<b>{{ supervisor.user.first_name }} {{ supervisor.user.last_name }}</b>
+	</p>
+	<p>
+		<b>{{ supervisor.academic_degree }}</b>
+	</p>
+</div>
+<a href="{%  url 'supervisorsList' %}"><input type="button" value="back"></input></a>
+{% endblock %}
