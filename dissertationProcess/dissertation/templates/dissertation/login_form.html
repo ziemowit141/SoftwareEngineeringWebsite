@@ -2,6 +2,8 @@
 {% block title %}Login Page{% endblock %}
 {% block content %}
 
+
+
 <div class="welcomemess">
 
 	<h1>Welcome to Dissertation System</h1>
@@ -34,7 +36,8 @@
 </tr>
 </table>
 
-<input type="submit" value="login">
+<input type="submit" value="login" id="guzik">
+
 <input type="hidden" name="next" value="/dissertation/index/">
 </form>
 
@@ -42,4 +45,9 @@
 {# Assumes you setup the password_reset view in your URLconf #}
 <p><a href="#">Forgot password?</a></p>
 </div>
+
+<div class="footer">
+  <p>System created by: Ziemowit, Starosta and Michu </p>
+</div>
+
 {% endblock %}
