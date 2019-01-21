@@ -8,6 +8,13 @@
 	<p>
 		<b>{{ supervisor.academic_degree }}</b>
 	</p>
+	<p>
+		{% for p in thesisList %}
+			<div>
+				<b>{{ p.subject }}</b>
+			</div>
+		{% endfor %}
+	</p>
 </div>
 <a href="{%  url 'supervisorsList' %}"><input type="button" value="back"></input></a>
 {% endblock %}

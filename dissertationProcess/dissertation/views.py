@@ -68,7 +68,10 @@ class SupervisorDetail(TemplateView):
 
     def get_context_data(self, username):
         profile = Profile.objects.get(user__username=username)
-        print(profile.user.username)
-        context = {"supervisor" : profile}
+        thesisList = profile.thesisList.all()
+        context = {"supervisor" : profile,
+                   "thesisList" : thesisList}
 
-        return context    
+        return context  
+
+
