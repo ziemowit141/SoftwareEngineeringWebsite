@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import logout
-from .models import Profile, Thesis, Message
+from dissertation.models import Profile, Thesis, Message
 
 
 # GENERIC POINT OF VIEW ###################################################
@@ -42,7 +42,7 @@ class LogoutView(RedirectView):
         return super(LogoutView, self).get_redirect_url(*args, **kwargs)
 
 # STUDENT POINT OF VIEW ###################################################
-class SupervisorsList(TemplateView):
+class SupervisorsList(LoginRequiredMixin, TemplateView):
     template_name = 'dissertation/availableSupervisors.html'
 
     # def get_context_data(self, **kwargs):
@@ -65,7 +65,7 @@ class SupervisorsList(TemplateView):
         return context
 
 
-class SupervisorDetail(TemplateView):
+class SupervisorDetail(LoginRequiredMixin, TemplateView):
     template_name = 'dissertation/supervisorDetail.html'
 
     def get_context_data(self, username):
@@ -76,21 +76,27 @@ class SupervisorDetail(TemplateView):
 
         return context  
 
-class AplyingForThesisSuccess(TemplateView):
+class AplyingForThesisSuccess(LoginRequiredMixin, TemplateView):
     template_name = 'dissertation/successfullyAplyingForSubject.html'
 
-    def notifySupervisor(self):
-        print("username")
+    def notifySupervisor(self, name):
+        print(name)
+        print(self.request.user.username)   
 
-    def get_context_data(self):
-        self.notifySupervisor()
+        sender_ = Profile.objects.get(user__username=self.request.user.username)
+        receiver_ = Profile.objects.get(user__username=name)
+
+        Message.objects.create(sender=sender_, receiver=receiver_, text="New supervising request")
+
+    def get_context_data(self, username):
+        self.notifySupervisor(username)
         context = {}
         return context
 
 
 
 # SUPERVISOR POINT OF VIEW ###################################################
-class StudentsList(TemplateView):
+class StudentsList(LoginRequiredMixin, TemplateView):
     template_name = 'dissertation/studentsList.html'
 
     def get_context_data(self, **kwargs):

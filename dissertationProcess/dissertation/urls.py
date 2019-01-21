@@ -10,7 +10,7 @@ urlpatterns = [
     path('index/<username>/', views.UserIndexView.as_view(), name='userindex'),
     path('supervisorsList/', views.SupervisorsList.as_view(), name='supervisorsList'),
     path('supervisorsList/<str:username>/', views.SupervisorDetail.as_view(), name='supervisorsListDetail'),
-    path('applyingForThesisSuccess/', views.AplyingForThesisSuccess.as_view(), name='aplyingForThesisSuccess'),
+    path('applyingForThesisSuccess/<str:username>', views.AplyingForThesisSuccess.as_view(), name='aplyingForThesisSuccess'),
     path('studentsList/', views.StudentsList.as_view(), name='studentsList'),
     path('change-password/', auth_views.PasswordChangeView.as_view(template_name='dissertation/password_change_form.html'),name='password_change'),
     path('password-changed/', auth_views.PasswordChangeDoneView.as_view(template_name='dissertation/password_change_done.html'),name='password_change_done'),
