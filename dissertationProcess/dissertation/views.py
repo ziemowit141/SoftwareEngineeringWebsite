@@ -79,20 +79,16 @@ class SupervisorDetail(LoginRequiredMixin, TemplateView):
 class AplyingForThesisSuccess(LoginRequiredMixin, TemplateView):
     template_name = 'dissertation/successfullyAplyingForSubject.html'
 
-    def notifySupervisor(self, name):
-        print(name)
-        print(self.request.user.username)   
-
+    def notifySupervisor(self, name, subject):
         sender_ = Profile.objects.get(user__username=self.request.user.username)
         receiver_ = Profile.objects.get(user__username=name)
+        Message.objects.create(sender=sender_, receiver=receiver_,
+            text="Is sending you supervision request for " + subject)
 
-        Message.objects.create(sender=sender_, receiver=receiver_, text="New supervising request")
-
-    def get_context_data(self, username):
-        self.notifySupervisor(username)
+    def get_context_data(self, username, subject):
+        self.notifySupervisor(username, subject)
         context = {}
         return context
-
 
 
 # SUPERVISOR POINT OF VIEW ###################################################
@@ -109,5 +105,15 @@ class StudentsList(LoginRequiredMixin, TemplateView):
                 print(profile.user.first_name)
 
         context = {"studentsList" : allStudentsProfiles}
+
+        return context
+
+
+class Notifications(LoginRequiredMixin, TemplateView):
+    template_name = 'dissertation/notifications.html'
+
+    def get_context_data(self, **kwargs):
+        myNotifications = Message.objects.filter(receiver__user__username=self.request.user.username)
+        context = {'notifications' : myNotifications}
 
         return context
