@@ -11,7 +11,7 @@
 	<p>
 		{% for p in thesisList %}
 			<div>
-				<b>{{ p.subject }}</b>
+				<b>{{ p.subject }}</b> <a href="{% url 'aplyingForThesisSuccess' %}"><button>apply</button></a>
 			</div>
 		{% endfor %}
 	</p>

@@ -74,4 +74,5 @@ class SupervisorDetail(TemplateView):
 
         return context  
 
-
+class AplyingForThesisSuccess(TemplateView):
+    template_name = 'dissertation/successfullyAplyingForSubject.html'
