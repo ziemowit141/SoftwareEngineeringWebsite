@@ -11,7 +11,8 @@ class Profile(models.Model):
     is_reviewer = models.BooleanField(default=False)
     academic_degree = models.CharField(max_length=100, default="None")
     picture = models.FileField(default='')
-    thesisList = models.ManyToManyField(Thesis)
+    thesisList = models.ManyToManyField(Thesis, blank=True)
+    cooperator = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
     def __str__(user):
         return str(user.user)
 

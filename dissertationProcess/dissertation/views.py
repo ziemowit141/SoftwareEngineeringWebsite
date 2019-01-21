@@ -96,15 +96,10 @@ class StudentsList(LoginRequiredMixin, TemplateView):
     template_name = 'dissertation/studentsList.html'
 
     def get_context_data(self, **kwargs):
-        allProfiles = Profile.objects.all()
-        allStudentsProfiles = []
+        allProfiles = Profile.objects.filter(is_reviewer=False)
+        myStudents = allProfiles.filter(cooperator__user__username=self.request.user.username)
 
-        for profile in allProfiles:
-            if not profile.is_reviewer:
-                allStudentsProfiles.append(profile)
-                print(profile.user.first_name)
-
-        context = {"studentsList" : allStudentsProfiles}
+        context = {"studentsList" : myStudents}
 
         return context
 
@@ -117,3 +112,6 @@ class Notifications(LoginRequiredMixin, TemplateView):
         context = {'notifications' : myNotifications}
 
         return context
+
+class AcceptStudent(TemplateView):
+    template_name ='dissertation/acceptStudent.html'
