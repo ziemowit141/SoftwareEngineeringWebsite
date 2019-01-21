@@ -14,3 +14,9 @@ class Profile(models.Model):
     thesisList = models.ManyToManyField(Thesis)
     def __str__(user):
         return str(user.user)
+
+class Message(models.Model):
+    sender = models.ForeignKey(Profile, related_name='sender_key', on_delete=models.CASCADE)
+    receiver = models.ForeignKey(Profile, related_name='receiver_key', on_delete=models.CASCADE)
+    text = models.TextField()
+

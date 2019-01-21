@@ -1,17 +1,13 @@
 {% extends "dissertation/base.html" %}
 {% block title %}User Main Page{% endblock %}
 {% block content %}
-    <nav>
-        <a href="{% url 'supervisorsList' %}">Supervisors List</a>
-    </nav>
     <img src="{{ user.profile.picture.url }}" height="200px" width="200px">
     <h2>{{ user.get_full_name }}</h2>
-    witamy {{ user.get_username  }}
-    {% if user.profile.is_student %}
-        <input type="button" value="show list of supervisors">
-    {% endif %}
+    witamy {{ user.get_username }}
     {% if user.profile.is_reviewer %}
-        <input type="button" value="show list of students">
+        <a href="{% url 'studentsList' %}"><input type="button" value="show list of students"></a>
+    {% else %}
+        <a href="{% url 'supervisorsList' %}"> <input type="button" value="show list of supervisors"> </a>
     {% endif %}
     <p><a href="{%  url 'password_change' %}">Reset password</a></p>
     <a href="{%  url 'logout' %}"><input type="button" value="logout"></input></a>

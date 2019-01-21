@@ -2,11 +2,13 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView, ListView, RedirectView
 from django.contrib.auth import views
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import logout
-from dissertation.models import Profile
+from .models import Profile, Thesis, Message
 
+
+# GENERIC POINT OF VIEW ###################################################
 class StartView(TemplateView):
     template_name = 'dissertation/start.html'
 
@@ -29,7 +31,7 @@ class LogoutView(RedirectView):
     """
     permanent = False
     query_string = True
-    pattern_name = 'start'
+    pattern_name = 'login'
 
     def get_redirect_url(self, *args, **kwargs):
         """
@@ -39,7 +41,7 @@ class LogoutView(RedirectView):
             logout(self.request)
         return super(LogoutView, self).get_redirect_url(*args, **kwargs)
 
-
+# STUDENT POINT OF VIEW ###################################################
 class SupervisorsList(TemplateView):
     template_name = 'dissertation/availableSupervisors.html'
 
@@ -76,3 +78,30 @@ class SupervisorDetail(TemplateView):
 
 class AplyingForThesisSuccess(TemplateView):
     template_name = 'dissertation/successfullyAplyingForSubject.html'
+
+    def notifySupervisor(self):
+        print("username")
+
+    def get_context_data(self):
+        self.notifySupervisor()
+        context = {}
+        return context
+
+
+
+# SUPERVISOR POINT OF VIEW ###################################################
+class StudentsList(TemplateView):
+    template_name = 'dissertation/studentsList.html'
+
+    def get_context_data(self, **kwargs):
+        allProfiles = Profile.objects.all()
+        allStudentsProfiles = []
+
+        for profile in allProfiles:
+            if not profile.is_reviewer:
+                allStudentsProfiles.append(profile)
+                print(profile.user.first_name)
+
+        context = {"studentsList" : allStudentsProfiles}
+
+        return context

@@ -1,0 +1,14 @@
+{% extends "dissertation/base.html" %}
+{% block title %} Students List {% endblock %}
+{% block content %}
+	<ul>
+		{% for student in studentsList %}
+			<li>
+				<!-- <a href="{% url 'supervisorsList' %}{{ student.user.username }}"> -->
+					{{ student.user.first_name }} {{ student.user.last_name }} {{ student.academic_degree }}
+				<!-- </a> -->
+			</li>
+		{% endfor %}
+	</ul>
+	<a href="{%  url 'index' %}"><input type="button" value="back"></input></a>
+{% endblock %}
