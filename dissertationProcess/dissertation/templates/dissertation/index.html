@@ -5,10 +5,11 @@
     <h2>{{ user.get_full_name }}</h2>
     witamy {{ user.get_username }}
     {% if user.profile.is_reviewer %}
-        <a href="{% url 'studentsList' %}"><input type="button" value="show list of students"></a>
+        <a href="{% url 'studentsList' %}"><input id="zaraza" type="button" value="show list of students"></a>
     {% else %}
         <a href="{% url 'supervisorsList' %}"> <input type="button" value="show list of supervisors"> </a>
     {% endif %}
     <p><a href="{%  url 'password_change' %}">Reset password</a></p>
     <a href="{%  url 'logout' %}"><input type="button" value="logout"></input></a>
+
 {% endblock %}

@@ -20,40 +20,52 @@ input[type=text], input[type=password] {
 }
 
 div.login {
-    max-width:450px;
-    margin: auto;
-	text-align: center;
-	font-size: 25px;
-	margin-top: 75px;
-	opacity: 1;
-    animation: fade 3s linear;
+  max-width: 450px;
+  margin: auto;
+  text-align: center;
+  font-size: 25px;
+  margin-top: 75px;
+  opacity: 1;
+  animation: fade 3s linear;
 }
+
+tabela td tr{
+  border: 0px;
+}
+
+
 
 @keyframes fade {
   0%,50% { opacity: 0 }
 }
 
 div.welcomemess {
-	margin-top: 70px;
-	margin-bottom: 10px;
-	font-size: 30px;
-	text-align: center;
-	opacity: 1;
-    animation: fade 2s linear;
+  margin-top: 70px;
+  margin-bottom: 10px;
+  font-size: 30px;
+  text-align: center;
+  opacity: 1;
+  animation: fade 2s linear;
 }
 
-div.forgot {
-	text-align: right;
-	width: 90%;
+.fpass {
+  text-align: right;
 }
 
-div.forgot :active{
-	color: black;
+.fpass :active{
+  color: black;
 }
 
-div.forgot :visited{
-	color: black;
+.fpass :visited{
+  color: black;
 }
+
+table, tr, td{
+  width: 400px;
+  border:none;
+}
+
+
 
 .guzik {
   background-color: #054887;
@@ -61,15 +73,15 @@ div.forgot :visited{
   font-size: 17px;
   padding: 14px 20px;
   margin: 8px 0;
-  border: none;
   cursor: pointer;
+  border:none;
   border-radius: 7px;
   width: 80%;
   margin-top: 20px;
 }
 
 /* Add a hover effect for buttons */
-button:hover {
+.guzik:hover {
   opacity: 0.8;
 }
 
@@ -81,7 +93,6 @@ button:hover {
 body {
   background: url("images/81651.png");
   background-size: cover;
-
 }
 
 .footer {
