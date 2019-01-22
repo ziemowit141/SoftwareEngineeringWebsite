@@ -6,7 +6,8 @@
     <img src="{{ user.profile.picture.url }}" class="ppic">
     <h2>{{ user.get_full_name }}</h2>
     {% if user.profile.is_reviewer %}
-        <a href="{% url 'studentsList' %}"><input type="button" class="inguzik" value="Show list of students"></a>
+        <a href="{% url 'studentsList' %}"><input type="button" class="inguzik" value="Show list of students"></a><br>
+        <a href="{%  url 'notifications' %}"><input type="button" class="inguzik" value="Notifications"></input></a>
     {% else %}
         <a href="{% url 'supervisorsList' %}"> <input type="button" class="inguzik" value="Show list of supervisors"> </a>
     {% endif %}
