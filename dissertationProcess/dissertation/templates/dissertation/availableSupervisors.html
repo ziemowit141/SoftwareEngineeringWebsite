@@ -1,6 +1,11 @@
 {% extends "dissertation/base.html" %}
 {% block title %} Supervisors List {% endblock %}
 {% block content %}
+	<a href="{%  url 'index' %}"><input type="button" class="bback" value="Back"></input></a><br>
+	<div class="info">
+		List of available supervisors:
+	</div>
+	<div class="list">
 	<ul>
 		{% for p in supervisorsList %}
 			<li>
@@ -10,5 +15,6 @@
 			</li>
 		{% endfor %}
 	</ul>
-	<a href="{%  url 'index' %}"><input type="button" value="back"></input></a>
+</div>
+
 {% endblock %}

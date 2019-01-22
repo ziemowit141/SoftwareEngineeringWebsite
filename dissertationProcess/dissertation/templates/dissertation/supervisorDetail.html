@@ -1,20 +1,23 @@
 {% extends "dissertation/base.html" %}
 {% block title %} Supervisors List {% endblock %}
 {% block content %}
-	<img src="{{ supervisor.user.profile.picture.url }}" height="200px" width="200px">
+	<img src="{{ supervisor.user.profile.picture.url }}" class="ppics">
 	<p>
 		<b>{{ supervisor.user.first_name }} {{ supervisor.user.last_name }}</b>
 	</p>
 	<p>
-		<b>{{ supervisor.academic_degree }}</b>
+		<b>Degree: {{ supervisor.academic_degree }}</b>
 	</p>
+	<br><br><br><br><br>
 	<p>
+		Available topics:
 		{% for p in thesisList %}
 			<div>
-				<b>{{ p.subject }}</b> <a href="{% url 'start' %}applyingForThesisSuccess/{{ supervisor.user.username }}/{{ p.subject }}/"><button>apply</button></a>
+				<a href="{% url 'start' %}applyingForThesisSuccess/{{ supervisor.user.username }}/{{ p.subject }}/"><button>Apply</button></a>
+				<b>{{ p.subject }}</b> 
 			</div>
 		{% endfor %}
 	</p>
 </div>
-<a href="{%  url 'supervisorsList' %}"><input type="button" value="back"></input></a>
+<a href="{%  url 'supervisorsList' %}"><input type="button" class="bback" value="Back"></input></a>
 {% endblock %}

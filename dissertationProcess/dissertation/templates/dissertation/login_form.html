@@ -25,7 +25,7 @@
 <div class="login">
 <form method="post" action="{% url 'login' %}">
 {% csrf_token %}
-<table id="tabela">
+<table class="tabela">
 <tr>
     <td>{{ form.username.label_tag }}</td>
     <td>{{ form.username }}</td>
@@ -36,7 +36,7 @@
 </tr>
 </table>
 
-<input type="submit" value="login" class="guzik">
+<input type="submit" value="Login" class="guzik">
 
 <input type="hidden" name="next" value="/dissertation/index/">
 </form>
