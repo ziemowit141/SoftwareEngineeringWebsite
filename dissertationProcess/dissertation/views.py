@@ -113,5 +113,18 @@ class Notifications(LoginRequiredMixin, TemplateView):
 
         return context
 
-class AcceptStudent(TemplateView):
+class AcceptStudent(LoginRequiredMixin, TemplateView):
     template_name ='dissertation/acceptStudent.html'
+
+    def get_context_data(self, student, id):
+        currentProfile = Profile.objects.get(user=self.request.user)
+        studentProfile = Profile.objects.get(user__username=student)
+        studentProfile.cooperator = currentProfile
+        studentProfile.save()
+        Message.objects.get(id=id).delete()
+
+class RejectStudent(LoginRequiredMixin, TemplateView):
+    template_name = 'dissertation/rejectStudent.html'
+
+    def get_context_data(self, student, id):
+        Message.objects.get(id=id).delete()
