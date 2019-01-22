@@ -1,8 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
-form {
-  border: 3px solid #f1f1f1;
-}
 
 * {
     font-family: "Roboto", sans-serif;
@@ -28,11 +25,6 @@ div.login {
   opacity: 1;
   animation: fade 3s linear;
 }
-
-tabela td tr{
-  border: 0px;
-}
-
 
 
 @keyframes fade {
@@ -60,12 +52,17 @@ div.welcomemess {
   color: black;
 }
 
-table, tr, td{
+table, tr{
   width: 400px;
-  border:none;
 }
 
+td{
+  width: 900px;
+}
 
+.form-control {
+    border: 0;
+}
 
 .guzik {
   background-color: #054887;
