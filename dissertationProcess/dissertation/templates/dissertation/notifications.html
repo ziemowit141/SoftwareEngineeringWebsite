@@ -8,16 +8,9 @@
                                         <p>{{message.sender}} {{message.text}}</p>
                             {% endif %}
 
-
-
-
-
-
-
-
                         {% endfor %}
     {% else %}
         <h3>You don't have any messages</h3>
     {%  endif %}
-    <a href="{%  url 'supervisorsList' %}"><input type="button" class="bback" value="Back"></input></a>
+    <a href="{%  url 'index' %}"><input type="button" class="bback" value="Back"></input></a>
 {% endblock %}
