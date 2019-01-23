@@ -13,8 +13,8 @@ urlpatterns = [
     path('applyingForThesisSuccess/<str:username>/<str:subject>/', views.AplyingForThesisSuccess.as_view(), name='aplyingForThesisSuccess'),
     path('studentsList/', views.StudentsList.as_view(), name='studentsList'),
     path('notifications/', views.Notifications.as_view(), name='notifications'),
-    path('notifications/accept/<str:student>/<int:id>/', views.AcceptStudent.as_view(), name='acceptStudent'),
-    path('notifications/reject/<str:student>/<int:id>/', views.RejectStudent.as_view(), name='rejectStudent'),
+    path('notifications/<student>/<id>/accept/', views.AcceptStudent.as_view(), name='acceptStudent'),
+    path('notifications/<pk>/reject/', views.RejectStudent.as_view(), name='rejectStudent'),
     path('change-password/', auth_views.PasswordChangeView.as_view(template_name='dissertation/password_change_form.html'),name='password_change'),
     path('password-changed/', auth_views.PasswordChangeDoneView.as_view(template_name='dissertation/password_change_done.html'),name='password_change_done'),
 ]

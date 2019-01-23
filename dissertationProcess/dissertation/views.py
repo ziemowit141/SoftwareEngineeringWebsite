@@ -6,6 +6,8 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import logout
 from dissertation.models import Profile, Thesis, Message
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 
 
 # GENERIC POINT OF VIEW ###################################################
@@ -118,17 +120,30 @@ class Notifications(LoginRequiredMixin, ListView):
     context_object_name = 'all_messages'
 
 class AcceptStudent(LoginRequiredMixin, TemplateView):
-    template_name ='dissertation/acceptStudent.html'
+        template_name = 'dissertation/acceptstudent.html'
 
-    def get_context_data(self, student, id):
-        currentProfile = Profile.objects.get(user=self.request.user)
-        studentProfile = Profile.objects.get(user__username=student)
-        studentProfile.cooperator = currentProfile
-        studentProfile.save()
-        Message.objects.get(id=id).delete()
+        def addstuden(self, student , id):
+                    currentProfile = Profile.objects.get(user=self.request.user)
+                    studentProfile = Profile.objects.get(user__username=student)
+                    studentProfile.cooperator = currentProfile
+                    studentProfile.save()
+                    Message.objects.get(id=id).delete()
+        def get_context_data(self, student,id):
+            self.addstuden(student,id)
+            context = {}
+            return context
+# class AcceptStudent(LoginRequiredMixin,RedirectView):
+#     permanent = False
+#     query_string = True
+#     pattern_name = 'notifications'
+#
+#     def get_context_data(self, student, pk):
+#         currentProfile = Profile.objects.get(user=self.request.user)
+#         studentProfile = Profile.objects.get(user__username=student)
+#         studentProfile.cooperator = currentProfile
+#         studentProfile.save()
+#         Message.objects.get(pk=pk).delete()
 
-class RejectStudent(LoginRequiredMixin, TemplateView):
-    template_name = 'dissertation/rejectStudent.html'
-
-    def get_context_data(self, student, id):
-        Message.objects.get(id=id).delete()
+class RejectStudent(LoginRequiredMixin, DeleteView):
+    model = Message
+    success_url = reverse_lazy('notifications')
