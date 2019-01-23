@@ -36,6 +36,16 @@ div.login {
   0%,50% { opacity: 0 }
 }
 
+.guzior{
+  background-color: #054887;
+  color: white;
+  font-size: 17px;
+  padding: 14px 20px;
+  margin: 8px 0;
+  cursor: pointer;
+  border:none;
+  border-radius: 7px;
+}
 
 div.welcomemess {
   margin-top: 60px;

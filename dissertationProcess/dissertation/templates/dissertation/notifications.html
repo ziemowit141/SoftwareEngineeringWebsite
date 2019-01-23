@@ -7,11 +7,11 @@
                             {% if user.get_username == message.receiver.user.get_username %}
                                         <p>{{message.sender}} {{message.text}}</p>
 
-                                        <a href="{% url 'start' %}notifications/{{ message.sender.user.username }}/{{ message.id }}/accept/"><input type="button" value="accept"></a>
+                                        <a href="{% url 'start' %}notifications/{{ message.sender.user.username }}/{{ message.id }}/accept/"><input type="button" value="Accept" class="guzior"></a>
                                         <form action="{% url 'rejectStudent' message.id %}" method="post" >
                                             {% csrf_token %}
                                             <input type="hidden" name="message_id" value="{{ message.id }}">
-                                            <input type="submit" value="reject">
+                                            <input type="submit" value="Reject" class="guzior">
                                         </form>
                             {% endif %}
 
