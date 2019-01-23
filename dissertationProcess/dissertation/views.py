@@ -104,14 +104,18 @@ class StudentsList(LoginRequiredMixin, TemplateView):
         return context
 
 
-class Notifications(LoginRequiredMixin, TemplateView):
+# class Notifications(LoginRequiredMixin, TemplateView):
+#     template_name = 'dissertation/notifications.html'
+#
+#     def get_context_data(self, **kwargs):
+#         myNotifications = Message.objects.filter(receiver__user__username=self.request.user.username)
+#         context = {'notifications' : myNotifications}
+#
+#         return context
+class Notifications(LoginRequiredMixin, ListView):
+    model = Message
     template_name = 'dissertation/notifications.html'
-
-    def get_context_data(self, **kwargs):
-        myNotifications = Message.objects.filter(receiver__user__username=self.request.user.username)
-        context = {'notifications' : myNotifications}
-
-        return context
+    context_object_name = 'all_messages'
 
 class AcceptStudent(LoginRequiredMixin, TemplateView):
     template_name ='dissertation/acceptStudent.html'

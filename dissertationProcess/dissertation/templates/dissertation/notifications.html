@@ -1,0 +1,23 @@
+{% extends "dissertation/base.html" %}
+{% block title %} Messages {% endblock %}
+{% block content %}
+    {% if all_messages %}
+        <h1 align="center">Here are all your messages</h1>
+                        {% for message in all_messages %}
+                            {% if user.get_username == message.receiver.user.get_username %}
+                                        <p>{{message.sender}} {{message.text}}</p>
+                            {% endif %}
+
+
+
+
+
+
+
+
+                        {% endfor %}
+    {% else %}
+        <h3>You don't have any messages</h3>
+    {%  endif %}
+    <a href="{%  url 'supervisorsList' %}"><input type="button" class="bback" value="Back"></input></a>
+{% endblock %}
