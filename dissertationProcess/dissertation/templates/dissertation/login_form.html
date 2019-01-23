@@ -11,17 +11,19 @@
 </div>
 
 {% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
+<p align="center">Your username and password didn't match. Please try again.</p>
 {% endif %}
 
 {% if next %}
     {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
+    <p align="center" >Your account doesn't have access to this page. To proceed,
     please login with an account that has access.</p>
     {% else %}
-    <p>Please login to see this page.</p>
+    <p align="center">Please login to see this page.</p>
     {% endif %}
 {% endif %}
+
+
 <div class="login">
 <form method="post" action="{% url 'login' %}">
 {% csrf_token %}
